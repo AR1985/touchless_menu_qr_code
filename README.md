@@ -12,7 +12,7 @@ With the rise of COVID-19, the restaurant industry has changed, with many prefer
 
 
 ## Example
-[Example] (https://imgur.com/ou1RDBB)
+https://imgur.com/ou1RDBB
 
 ## Sign Holders (to hold QR code)
 https://www.amazon.ca/s?k=sign+holder+4+x+6&ref=nb_sb_noss
