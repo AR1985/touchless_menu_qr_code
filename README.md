@@ -1,5 +1,5 @@
 # Touchless Menu Generator with QR Code
-A website that allows you to upload a menu and logo, and generates the QR code with your logo, and hosts your menu for you
+A website that allows you to upload a menu and logo, and generates the QR code with your logo, for touchless ordering
 
 With the rise of COVID-19, the restaurant industry has changed, with many preferring to go with touchless ordering.  This website allows restaurants to create and host their menus in a touchless manner, without the need for excessive costs or complication.
 
