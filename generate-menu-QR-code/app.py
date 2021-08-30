@@ -12,7 +12,7 @@ app = Flask(__name__, static_url_path='/static/')
 url_domain = 'http://localhost/display_menu/'
 
 app.config['UPLOAD_FOLDER'] = '/static/'
-#app.config['MAX_CONTENT_PATH'] = 
+app.config['MAX_CONTENT_PATH'] = 5 * 1024 * 1024     #5MB max upload size
 
 
 #Internal functions
@@ -62,6 +62,7 @@ def generate_qr_code(url_subdirectory):
    #Save file to directory
    img.save(f'{url_subdirectory}_qrcode_logo.png')
    print(f'New QR code saved to: {url_subdirectory}_qrcode.png')
+
 
 def generate_pdf(logo):
    """Generates a pdf of the QR code, to print"""
@@ -117,6 +118,3 @@ def display_subdirectory(url_subdirectory):
 if __name__ == '__main__':
    #ip = socket.gethostbyname(socket.gethostname())
    app.run(debug = True)
-
-
-generate_qr_code('UpstartleTrisaccharideUntimeously')
