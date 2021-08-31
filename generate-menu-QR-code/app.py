@@ -9,7 +9,7 @@ import random
 import time
 
 app = Flask(__name__, static_url_path='/static/')
-url_domain = 'http://localhost/display_menu/'
+url_domain = 'http://18.217.133.197/display_menu/'
 
 app.config['UPLOAD_PATH'] = 'static'
 app.config['MAX_CONTENT_PATH'] = 5 * 1024 * 1024     #5MB max upload size
@@ -46,7 +46,7 @@ def generate_qr_code(url_subdirectory):
    )
 
    #Generate QR code
-   qr.add_data(f'{url_domain}static/{url_subdirectory}')
+   qr.add_data(f'{url_domain}{url_subdirectory}')        #URL for embedded data in QR barcode
    qr.make(fit=True)
    img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
    img.save(f'static/{url_subdirectory}_qrcode.png')
