@@ -11,7 +11,7 @@ import time
 app = Flask(__name__, static_url_path='/static/')
 url_domain = 'http://localhost/display_menu/'
 
-app.config['UPLOAD_FOLDER'] = '/static/'
+app.config['UPLOAD_PATH'] = 'static'
 app.config['MAX_CONTENT_PATH'] = 5 * 1024 * 1024     #5MB max upload size
 
 
@@ -46,22 +46,22 @@ def generate_qr_code(url_subdirectory):
    )
 
    #Generate QR code
-   qr.add_data(f'{url_domain}{url_subdirectory}')
+   qr.add_data(f'{url_domain}static/{url_subdirectory}')
    qr.make(fit=True)
    img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
-   img.save(f'{url_subdirectory}_qrcode.png')
+   img.save(f'static/{url_subdirectory}_qrcode.png')
    print('QR code generated')
 
    #Overlay logo
-   logo_display = Image.open(f'{url_subdirectory}_logo.png')
+   logo_display = Image.open(f'static/{url_subdirectory}_logo.png')
    logo_display.thumbnail((150, 150))
    logo_pos = ((img.size[0] - logo_display.size[0]) // 2, (img.size[1] - logo_display.size[1]) // 2)
    img.paste(logo_display, logo_pos)
    print('QR logo overlaid')
 
    #Save file to directory
-   img.save(f'{url_subdirectory}_qrcode_logo.png')
-   print(f'New QR code saved to: {url_subdirectory}_qrcode.png')
+   img.save(f'static/{url_subdirectory}_qrcode_logo.png')
+   print(f'New QR code saved to: static/{url_subdirectory}_qrcode.png')
 
 
 def generate_pdf(logo):
@@ -85,12 +85,14 @@ def upload_file():
       random_url = generate_random_url()
 
       f = request.files['menu']
-      f.filename = random_url + '_menu' + os.path.splitext(f.filename)[1]
-      f.save(secure_filename(f.filename))
+      f.filename = secure_filename(random_url + '_menu' + os.path.splitext(f.filename)[1])
+      #f.save(secure_filename("".join('static/',f.filename)))
+      f.save(os.path.join(app.config['UPLOAD_PATH'], f.filename))
 
       f = request.files['logo']
-      f.filename = random_url + '_logo' + os.path.splitext(f.filename)[1]
-      f.save(secure_filename(f.filename))
+      f.filename = secure_filename(random_url + '_logo' + os.path.splitext(f.filename)[1])
+      #f.save(secure_filename("".join('static/',f.filename)))
+      f.save(os.path.join(app.config['UPLOAD_PATH'], f.filename))
 
       generate_qr_code(random_url)        #Generate the QR barcode
 
