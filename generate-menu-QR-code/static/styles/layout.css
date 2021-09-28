@@ -59,7 +59,7 @@ label:hover {
 }
 
 input[type="file"] {
-
+	display:none;
 }
 
 input[type="email"] {
