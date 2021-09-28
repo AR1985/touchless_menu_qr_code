@@ -114,20 +114,3 @@ button span {
 button:hover span {
   background: transparent;
 }
-
-.qrcodebody {
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.qrcode {
-  border-style: solid;
-  width:fit-content;
-  border-radius: 2em;
-  box-shadow: 5px 5px #00629d;
-  border-color: #0089dc;
-  border-width: 2px;
-}
