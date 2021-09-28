@@ -14,4 +14,10 @@ body {
   box-shadow: 5px 5px #00629d;
   border-color: #0089dc;
   border-width: 2px;
+  transition: 0.5s;
+}
+
+.qrcode:hover {
+  box-shadow: 15px 15px #009d08;
+  border-color: #00c50a;
 }
