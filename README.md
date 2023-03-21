@@ -6,7 +6,7 @@ With the rise of COVID-19, the restaurant industry has changed, with many prefer
 ***Please note this website is only a prototype example and not intended to support actual QR codes for websites, which are wiped semi-regularly***
 
 ## How to Use
-1. Navigate to http://18.217.133.197
+1. Navigate to http://13.59.145.128
 2. Upload your menu in PDF format and logo in PNG format
 3. Download and print the QR code
 4. Post the QR code on the restaurant tables
