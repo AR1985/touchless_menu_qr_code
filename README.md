@@ -5,6 +5,13 @@ With the rise of COVID-19, the restaurant industry has changed, with many prefer
 
 ***Please note this website is only a prototype example and not intended to support actual QR codes for websites, which are wiped semi-regularly***
 
+
+## Version
+V1 - MVP
+This version was put together as an initial proof of concept, without much thought to architecture.
+The architecture employs a manually configured EC2 instance, running a Flask server, and saving uploaded files to the EC2 root directory.
+
+
 ## How to Use
 1. Navigate to http://13.59.145.128
 2. Upload your menu in PDF format and logo in PNG format
