@@ -13,7 +13,7 @@ The architecture employs a manually configured EC2 instance, running a Flask ser
 
 
 ## How to Use
-1. Navigate to http://13.59.145.128
+1. Navigate to http://touchless-menu-qr-code.us-east-2.elasticbeanstalk.com/
 2. Upload your menu in PDF format and logo in PNG format
 3. Download and print the QR code
 4. Post the QR code on the restaurant tables
