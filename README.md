@@ -25,6 +25,3 @@ The architecture employs a manually configured EC2 instance, running a Flask ser
 
 ## Sign Holders (to hold QR code)
 https://www.amazon.ca/s?k=sign+holder+4+x+6&ref=nb_sb_noss
-
-
-

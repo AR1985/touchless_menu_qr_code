@@ -82,7 +82,7 @@ input[type="email"]:invalid {
   border-color: red;
   border-width: 2px;
 }
- 
+
 button {
   background-color: #00b9d6;
   border-radius: 6px;
