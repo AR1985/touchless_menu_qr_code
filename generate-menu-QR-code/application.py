@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from werkzeug.utils import secure_filename
 import qrcode
 from PIL import Image
@@ -8,7 +8,6 @@ import random
 import time
 
 application = Flask(__name__, static_url_path='/static/')
-url_domain = 'http://18.217.133.197/display_menu/'
 
 application.config['UPLOAD_PATH'] = 'static'
 application.config['MAX_CONTENT_PATH'] = 5 * 1024 * 1024     #5MB max upload size
@@ -45,7 +44,8 @@ def generate_qr_code(url_subdirectory):
    )
 
    #Generate QR code
-   qr.add_data(f'{url_domain}{url_subdirectory}')        #URL for embedded data in QR barcode
+   hostname = request.base_url
+   qr.add_data(f'{hostname}/display_menu/{url_subdirectory}')        #URL for embedded data in QR barcode
    qr.make(fit=True)
    img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
    img.save(f'static/{url_subdirectory}_qrcode.png')
