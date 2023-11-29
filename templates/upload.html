@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+   <head>
+<!-- <<<<<<<<< HEAD -->
+      <script src="https://kit.fontawesome.com/b280d35f25.js" crossorigin="anonymous"></script>
+<!-- <<<<<<<<< =======  -->
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/layout.css') }}">
+<!-- >>>>>>> main -->
+   </head>
+   <body>
+      <div class="formwrapper">
+         <form action = "/uploader" method = "POST" enctype = "multipart/form-data">
+            <h1>Touchless Menu QR Code Generator</h1>
+            <fieldset>
+               <label for="menu-upload" class="menu-upload">
+                  <i class="fas fa-file-upload"></i> Upload Menu
+               </label>
+               <input id="menu-upload" type="file" name="menu" />
+            </fieldset>
+            <fieldset>
+               <label for="logo-upload" class="logo-upload">
+                  <i class="fas fa-image"></i> Upload Logo
+               </label>
+               <input id="logo-upload" type="file" name="logo" />
+            </fieldset>
+            <fieldset>
+               <input type="email" name="email" placeholder="restaurant@email.com" required/>
+            </fieldset>
+            <button type="submit"><span>Submit</span></button>
+         </form>
+      </div>  
+   </body>
+</html>

@@ -1,4 +1,0 @@
-flask===2.0.1
-Werkzeug==2.0.1
-qrcode==7.3
-Pillow==8.4.0
