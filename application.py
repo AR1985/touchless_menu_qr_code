@@ -44,7 +44,7 @@ def generate_qr_code(url_subdirectory):
    )
 
    #Generate QR code
-   hostname = request.base_url
+   hostname = request.base_url.rsplit('/',1)[0]
    qr.add_data(f'{hostname}/display_menu/{url_subdirectory}')        #URL for embedded data in QR barcode
    qr.make(fit=True)
    img = qr.make_image(fill_color="black", back_color="white").convert('RGB')
