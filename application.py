@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect
 from werkzeug.utils import secure_filename
 import qrcode
 from PIL import Image
@@ -85,12 +85,10 @@ def upload_file():
 
       f = request.files['menu']
       f.filename = secure_filename(random_url + '_menu' + os.path.splitext(f.filename)[1])
-      #f.save(secure_filename("".join('static/',f.filename)))
       f.save(os.path.join(application.config['UPLOAD_PATH'], f.filename))
 
       f = request.files['logo']
       f.filename = secure_filename(random_url + '_logo' + os.path.splitext(f.filename)[1])
-      #f.save(secure_filename("".join('static/',f.filename)))
       f.save(os.path.join(application.config['UPLOAD_PATH'], f.filename))
 
       generate_qr_code(random_url)        #Generate the QR barcode
@@ -117,5 +115,4 @@ def display_subdirectory(url_subdirectory):
 
 
 if __name__ == '__main__':
-   #ip = socket.gethostbyname(socket.gethostname())
    application.run(debug = True)
