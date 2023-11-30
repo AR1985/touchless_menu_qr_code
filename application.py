@@ -15,7 +15,9 @@ application.config["MAX_CONTENT_PATH"] = 5 * 1024 * 1024  # 5MB max upload size
 
 # Internal functions
 def generate_random_url():
-    """Generates and returns 3x english words concatenated to use for random URL"""
+    """Generates and returns 3x english words concatenated to use for
+    random URL"""
+
     url_string = ""
 
     f = open("word_file.txt", "r")
@@ -25,7 +27,7 @@ def generate_random_url():
     for i in range(3):
         url_string += word_list[
             random.randint(0, word_file_length)
-        ].capitalize()  # Capitalize and add random word from word_list, to string
+        ].capitalize()  # Capitalize and add random word from word_list
 
     re.sub(r"\W+", "", url_string.lower().strip())
 
@@ -35,7 +37,8 @@ def generate_random_url():
 
 
 def generate_qr_code(url_subdirectory):
-    """When given url_subdirectory, generates QR code to URL, overlays logo file, and saves with URL subdirectory filename"""
+    """When given url_subdirectory, generates QR code to URL, overlays logo file,
+    and saves with URL subdirectory filename"""
 
     # Set QR code parameters
     qr = qrcode.QRCode(
@@ -70,11 +73,6 @@ def generate_qr_code(url_subdirectory):
     print(f"New QR code saved to: static/{url_subdirectory}_qrcode.png")
 
 
-def generate_pdf(logo):
-    """Generates a pdf of the QR code, to print"""
-    pass
-
-
 # Routes
 @application.route("/")
 def index():
@@ -105,9 +103,7 @@ def upload_file():
 
         generate_qr_code(random_url)  # Generate the QR barcode
 
-        time.sleep(
-            1
-        )  # Wait for the QR barcode to be saved properly, to avoid race conditions
+        time.sleep(1)  # Wait for QR barcode to save, to avoid race conditions
 
         return redirect(
             f"/display_QR_code/{random_url}"
